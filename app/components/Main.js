@@ -4,7 +4,7 @@ import Saved from "./Saved";
 
 var API = require("../utils/API");
 
-const Main = () => (
+const Main = props => (
     <div className="container">
         <div className="jumbotron">
             <h1 className="text-center"><i className="fa fa-newspaper-o" aria-hidden="true"></i>  New York Times Artices</h1>

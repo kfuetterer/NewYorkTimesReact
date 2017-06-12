@@ -1,5 +1,5 @@
 import axios from "axios";
-const nytAPI= "7ca69eff4bd346239efe73cfddb6ac75";
+const nytAPI= "7a10953a139f42f9ac200e0ebebba2d6";
 
 const API = {
     runQuery: function(topic, startYear, endYear) {

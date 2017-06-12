@@ -3,12 +3,24 @@ import React, { Component } from "react";
 var API = require("../utils/API");
 
 class Saved extends Component {
+    constructor() {
+        super();
+        this.state = {
+            articles: []
+        };
+        this.getArticles = this.getArticles.bind(this);
+    }
     handleDelete (event) {
         var articleID = event.target.value;
 
         API.deleteArticle(articleID).then(function(response){
             console.log("Deleted article");
         }.bind(this));
+    }
+    getArticles() {
+        API.getArticles().then((res) => {
+            this.setState({ articles: res.data });
+        });
     }
     render() {
         return (
@@ -34,6 +46,6 @@ class Saved extends Component {
             </div>
         );
     }
-}
+};
 
 export default Saved;

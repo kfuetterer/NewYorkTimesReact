@@ -9,7 +9,9 @@ class Query extends Component {
             search: "",
             start: "",
             end: ""
-        }
+        };
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
     handleChange (event) {
     	var newState = {};
@@ -45,6 +47,6 @@ class Query extends Component {
             </div>
         );
     }
-}
+};
 
 export default Query;

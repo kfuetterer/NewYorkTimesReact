@@ -1,11 +1,13 @@
-import React from "react";
-import { Route, IndexRoute, Router, browserHistory } from "react-router";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { BrowserRouter, Route } from 'react-router-dom'
+
 import Main from "../components/Main";
 
 const routes = (
-    <Router history={browserHistory}>
-        <Route path="/" component={Main}>{}</Route>
-    </Router>
+    <BrowserRouter> 
+        <Route path="/" component={Main} />
+    </BrowserRouter>
 );
 
 export default routes;
