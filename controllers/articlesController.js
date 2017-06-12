@@ -1,4 +1,5 @@
 var Article = require("../models/article");
+
 module.exports = {
   index: function(req, res) {
     var query;
