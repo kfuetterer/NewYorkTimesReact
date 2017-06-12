@@ -11,30 +11,25 @@ class Search extends Component {
         this.state = {
             term: "",
             searchStartYear: "",
-            searchEndYear: "",
-            results: {}
+            searchEndYear: ""
         }
+        this.getArticles = this.getArticles.bind(this);
     }
-	componentDidUpdate (prevProps, prevState) {
-		API.runQuery(this.state.term, this.state.searchStartYear, this.state.searchEndYear, function(data){
+	getArticles (term, searchStartYear, searchEndYear) {
+		API.runQuery(term, searchStartYear, searchEndYear, function(data){
 			this.setState({
-				results: data
+				term: term,
+                searchStartYear: searchStartYear,
+                searchEndYear: searchEndYear
 			})
 		}.bind(this));
     }
-	setQuery (newQuery, newStart, newEnd) {
-        this.setState({
-            term: newQuery,
-            searchStartYear: newStart,
-            searchEndYear: newEnd
-        });
-	}
     render() {
         return (
 			<div className="main-container">
-				<Query updateSearch={this.setQuery} />
+				<Query getArticles={this.getArticles} />
 				{ }
-				<Results results={this.state.results}/>
+				<Results results={this.state.term}/>
 			</div>
         );
     }

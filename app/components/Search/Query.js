@@ -6,9 +6,9 @@ class Query extends Component {
     constructor() {
         super();
         this.state = {
-            search: "",
-            start: "",
-            end: ""
+            term: "",
+            searchStartYear: "",
+            searchEndYear: "",
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -19,7 +19,7 @@ class Query extends Component {
     	this.setState(newState);
     }
 	handleSubmit () {
-		this.props.getArticles(this.state.search, this.state.start, this.state.end);
+		this.props.getArticles(this.state.term, this.state.searchStartYear, this.state.searchEndYear);
 		return false;
 	}
     render() {
@@ -34,11 +34,11 @@ class Query extends Component {
                     <form onSubmit={this.handleSubmit}>
                         <div className="form-group">
                             <h4><strong>Topic</strong></h4>
-                            <input value={this.state.value} id="search" onChange={this.handleChange} type="text" className="form-control" placeholder="Topic" />
+                            <input value={this.state.value} id="term" onChange={this.handleChange} type="text" className="form-control" placeholder="Topic" />
                             <h4><strong>Start Year</strong></h4>
-                            <input value={this.state.value} id="start" onChange={this.handleChange} type="text" className="form-control" placeholder="Start Year" />
+                            <input value={this.state.value} id="searchStartYear" onChange={this.handleChange} type="text" className="form-control" placeholder="Start Year" />
                             <h4><strong>End Year</strong></h4>
-                            <input value={this.state.value} id="end" onChange={this.handleChange} type="text" className="form-control" placeholder="End Year" />
+                            <input value={this.state.value} id="searchEndYear" onChange={this.handleChange} type="text" className="form-control" placeholder="End Year" />
                             <br />
                             <button type="button" className="btn btn-primary" onClick={this.handleSubmit}>Search</button>
                         </div>
