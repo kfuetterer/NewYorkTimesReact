@@ -9,18 +9,14 @@ class Search extends Component {
     constructor() {
         super();
         this.state = {
-            term: "",
-            searchStartYear: "",
-            searchEndYear: ""
+            results: {}
         }
         this.getArticles = this.getArticles.bind(this);
     }
 	getArticles (term, searchStartYear, searchEndYear) {
 		API.runQuery(term, searchStartYear, searchEndYear, function(data){
 			this.setState({
-				term: term,
-                searchStartYear: searchStartYear,
-                searchEndYear: searchEndYear
+                results: data
 			})
 		}.bind(this));
     }
